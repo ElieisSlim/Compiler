@@ -1,0 +1,5 @@
+C:\Users\eliek\Compiler\obj\Debug\net7.0-windows\Compiler.csproj.AssemblyReference.cache
+C:\Users\eliek\Compiler\obj\Debug\net7.0-windows\Compiler.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eliek\Compiler\obj\Debug\net7.0-windows\Compiler.AssemblyInfoInputs.cache
+C:\Users\eliek\Compiler\obj\Debug\net7.0-windows\Compiler.AssemblyInfo.cs
+C:\Users\eliek\Compiler\obj\Debug\net7.0-windows\Compiler.csproj.CoreCompileInputs.cache

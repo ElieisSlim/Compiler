@@ -1,0 +1,97 @@
+<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><element><id>UMLClass</id><coordinates><x>144</x><y>30</y><w>189</w><h>207</h></coordinates><panel_attributes>_Enum: SyntaxKind_
+--
+        NumberToken,
+        WhitespaceToken,
+        PlusToken,
+        MinusToken,
+        AsterixToken,
+        ForwardslashToken,
+        OpenbracketToken,
+        ClosebracketToken,
+        BadToken,
+        EndToken,
+        NumberExpression,
+        BinaryExpression,
+        ParenthesizedExpression</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>432</x><y>39</y><w>126</w><h>27</h></coordinates><panel_attributes>/Abstract:SyntaxNode/
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>324</x><y>30</y><w>189</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>190;10;90;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>657</x><y>57</y><w>234</w><h>126</h></coordinates><panel_attributes>&lt;&lt;SyntaxNode&gt;&gt;
+SyntaxToken
+--
+-SyntaxKind: Kind
+-Int: Position
+-String: Text
+-Object: Value
+--
+Methods:
+IEnumerable&lt;SyntaxNode&gt; GetChildren()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>324</x><y>21</y><w>540</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>580;40;450;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>549</x><y>39</y><w>243</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>250;20;60;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>477</x><y>228</y><w>180</w><h>99</h></coordinates><panel_attributes>SyntaxTree
+--
+-IEnumerable&lt;string&gt; Diagnostics
+-ExpressionSyntax Root
+-SyntaxToken EndOfFileToken
+--
+Methods:
+SyntaxTree Parse(String Text)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>468</x><y>120</y><w>144</w><h>36</h></coordinates><panel_attributes>&lt;SyntaxNode&gt;
+/Abstract: ExpressionSyntax/
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>603</x><y>120</y><w>45</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>30;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>423</x><y>39</y><w>126</w><h>99</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>120;90;10;70;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>423</x><y>435</y><w>261</w><h>126</h></coordinates><panel_attributes>&lt;&lt;ExpressionSyntax&gt;&gt;
+BinaryExpressionSyntax
+--
+-ExpressionSyntax Left
+-SyntaxToken OperatorToken
+-ExpressionSyntax Right
+--
+Methods:
+SyntaxKind Kind =&gt; SyntaxKind.BinaryExpression
+IEnumerable&lt;SyntaxNode&gt; GetChildren()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>648</x><y>174</y><w>45</w><h>279</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>30;290;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>99</x><y>282</y><w>261</w><h>99</h></coordinates><panel_attributes>&lt;&lt;ExpressionSyntax&gt;&gt;
+NumberExpressionSyntax
+--
+-SyntaxToken NumberToken
+--
+Methods:
+SyntaxKind Kind =&gt; SyntaxKind.NumberExpression
+IEnumerable&lt;SyntaxNode&gt; GetChildren()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>459</x><y>147</y><w>27</w><h>306</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;320;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>351</x><y>183</y><w>324</w><h>198</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;200;340;170;340;10</additional_attributes></element><element><id>Relation</id><coordinates><x>333</x><y>147</y><w>162</w><h>153</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;150;160;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>99</x><y>426</y><w>297</w><h>135</h></coordinates><panel_attributes>&lt;&lt;ExpressionSyntax&gt;&gt;
+ParenthesisExpressionSyntax
+--
+-SyntaxToken OpenBracketToken
+-ExpressionSyntax expression
+-SyntaxToken CloseBracketToken
+--
+Methods:
+SyntaxKind Kind =&gt; SyntaxKind.ParenthesizedExpression
+IEnumerable&lt;SyntaxNode&gt; GetChildren()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>351</x><y>147</y><w>144</w><h>297</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;310;140;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>756</x><y>237</y><w>252</w><h>144</h></coordinates><panel_attributes>Lexer
+--
+-String Text
+-Int Position
+-List&lt;String&gt; Diagnostics
+--
+Methods:
+Char Current
+Void Next()
+IEnumerable&lt;string&gt; Diagnostics =&gt; Diagnostics
+SyntaxToken NextToken
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>882</x><y>174</y><w>81</w><h>81</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>70;70;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>720</x><y>417</y><w>252</w><h>243</h></coordinates><panel_attributes>Parser
+--
+-SyntaxToken[] Tokens
+-List&lt;String&gt; Diagnostics
+-Int Position
+-Lexer Lexer
+--
+Methods:
+IEnumerable&lt;string&gt; Diagnostics =&gt; Diagnostics
+SyntaxToken Peek(Int Offset)
+SyntaxToken Current =&gt; Peek(0)
+SyntaxToken NextToken()
+SyntaxToken Match(SyntaxKind Kind)
+ExpressionSyntax ParseTerm()
+ExpressionSyntax ParseExpression()
+SyntaxToken Parse()
+ExpressionSyntax ParseFactor()
+ExpressionSyntax ParsePrimaryExpression()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>873</x><y>372</y><w>27</w><h>63</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>174</y><w>27</w><h>261</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;270;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>603</x><y>147</y><w>144</w><h>288</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>140;300;140;130;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>459</x><y>615</y><w>252</w><h>108</h></coordinates><panel_attributes>Evaluator
+--
+-ExpressionSyntax Root
+--
+Methods:
+Evaluator(ExpressionSyntax Root)
+Int Evaluate
+Int EvaluateExpression(ExpressionSyntax Node)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>603</x><y>138</y><w>117</w><h>495</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>110;530;110;190;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>288</x><y>552</y><w>189</w><h>144</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>190;140;10;140;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>432</x><y>552</y><w>45</w><h>117</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>30;110;10;110;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>351</x><y>372</y><w>126</w><h>279</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>120;290;70;290;70;10;10;10</additional_attributes></element></diagram>
